@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: black;
+            color: #FFFF;
+        }
+        #time {
+            font-size: 100px;
+        }
+        div {
+            font-size: 20px;
+        }
+    </style>
+    <title>新冠状型肺炎-实时数据</title>
+</head>
+<body>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-7">
+                    <div id="time">
+                            17:35
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <div id="date">
+                        2020年2月4日
+                    </div>
+                    
+                    <div id="week">
+                        星期二                
+                    </div>
+                    <div id="weather">
+                        天气：{{ weather }}
+                    </div>
+                    <div id="temperature">
+                        温度：{{ temperature }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div>疫情内容: {{ deadline }}</div>
+                    <div>全国感染人数：{{ total_num }}</div>
+                    <div>全国疑似人数：{{ suspect_num }}</div>
+                    <div>死亡人数：{{ dead_num }}</div>
+                    <div>治愈人数：{{ recover_num }}</div>
+            </div>
+    </div>
+
+    <script>
+        function showTime(){
+            var nowtime=new Date();
+            var week = new String();
+            var year=nowtime.getFullYear();
+            var month=nowtime.getMonth()+1;
+            var day = nowtime.getDate();
+            switch(nowtime.getDay()){
+                case 0:
+                    week = "日";
+                    break;
+                case 1:
+                    week = "一";
+                    break;
+                case 2:
+                    week = "二";
+                    break;
+                case 3:
+                    week = "三";
+                    break;
+                case 4:
+                    week = "四";
+                    break;
+                case 5:
+                    week = "五";
+                    break;
+                case 6:
+                    week = "六";
+                    break;
+            }
+            var minu = nowtime.getMinutes();
+            var hour = nowtime.getHours();
+            date=hour+":"+(minu<10?"0"+minu:minu);
+            document.getElementById("time").innerText=date;
+            document.getElementById("date").innerText=year+"年"+month+"月"+day+"日";
+            document.getElementById("week").innerText="星期"+week;
+            
+            //当分钟取余为0时(即10分钟刷新一次)
+            if(minu % 10 == 0){
+                location.reload(true);
+            }
+            
+        }
+        setInterval("showTime()",1000);
+    </script>
+</body>
+</html>
