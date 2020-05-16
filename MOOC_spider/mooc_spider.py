@@ -3,7 +3,7 @@ from requests import get,post
 from os.path import exists,join
 from os import getcwd,makedirs
 from urllib.parse import unquote
-from tqdm import tqdm
+# from tqdm import tqdm
 
 class Mooc_Spider(object):
     url = ''
@@ -124,14 +124,19 @@ class Mooc_Spider(object):
             f.close()
 
         return (pdf_name)
-        
+
 if __name__ == '__main__':
-    url = input('输入网址:')
-    mooc = Mooc_Spider(url)
+    pass
+    # url = input('输入网址:')
+    # mooc = Mooc_Spider(url)
     
-    #进度条显示
-    id_list =tqdm(mooc.get_id_list()) 
-    for id in id_list:
-        a = mooc.download_pdf(id)
-        id_list.set_description(a)
+    # #进度条显示
+    # id_list =tqdm(mooc.get_id_list()) 
+    # for id in id_list:
+    #     a = mooc.download_pdf(id)
+    #     id_list.set_description(a)
+    # # id_list = mooc.get_id_list()
+    # # for id in id_list:
+    # #     a=mooc.download_pdf(id)
+    # #     print(a+'..... ok')
     
