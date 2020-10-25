@@ -25,12 +25,12 @@ def getInfor(xuehao):
 def parse(text): 
     pass
 if __name__ == "__main__":
-    # xuehao = '201740813'
+    # xuehao = ''
     # for i in range(10,90):
     #     print(xuehao+str(i))
     #     print(getInfor(xuehao+str(i)))
     #     print('\n')
     #20174081302
-    text = getInfor('20174081302')
+    text = getInfor('')
 
     print(text) 
