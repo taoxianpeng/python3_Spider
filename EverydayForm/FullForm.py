@@ -4,7 +4,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 import logging
 
-chromedriver_path = r'D:\GitHub\EverydayForm\chromedriver.exe'
+chromedriver_path = r'D:\GitHub\python3_Spider\EverydayForm\chromedriver.exe'
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 
@@ -64,6 +64,6 @@ def run(username, password):
         logging.info('{username} Congratuation! you fill out this form! go play.'.format(username=username))
 
 if __name__ == "__main__":
-    username=''
-    password=''
+    username='ZS198197'
+    password='win22434.'
     run(username,password)
