@@ -3,8 +3,11 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 import logging
-
-chromedriver_path = r'D:\GitHub\python3_Spider\EverydayForm\chromedriver.exe'
+import os
+#linux下不能用这个地址
+# chromedriver_path = os.getcwd()+'/'+'chromedriver'
+#sudo apt install chromium-driver安装
+chromedriver_path = '/usr/bin/chromedriver'
 chrome_options = Options()
 chrome_options.add_argument('--headless')
 
@@ -36,7 +39,6 @@ def run(username, password):
     if isFullForm:
         # print('当日已经完成填报！')
         logging.info('{username} Today, you filled out of form !'.format(username=username))
-        return
     else:
         driver.find_element_by_id('post').click()
 
@@ -64,6 +66,6 @@ def run(username, password):
         logging.info('{username} Congratuation! you fill out this form! go play.'.format(username=username))
 
 if __name__ == "__main__":
-    username='ZS198197'
-    password='win22434.'
-    run(username,password)
+    # username=''
+    # password=''
+    # run(username,password)

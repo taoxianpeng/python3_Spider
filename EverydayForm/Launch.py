@@ -6,8 +6,8 @@ import FullForm
 import getpass
 import os
 sys_argv = sys.argv[1]
-# userPath = os.getcwd() + '\\'+'user.json'
-userPath= r'D:\GitHub\python3_Spider\EverydayForm\user.json'
+userPath = os.getcwd() + '/'+'user.json'
+# userPath= r'D:\GitHub\python3_Spider\EverydayForm\user.json'
 def getUserFile(path):
     with open(path) as f:
         result = json.load(f)
